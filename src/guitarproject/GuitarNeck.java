@@ -23,7 +23,7 @@ public class GuitarNeck extends JPanel
     {
         try
         {
-            img = ImageIO.read(new File("K:\\home_etu-\\s16005598\\je danse la java\\GuitarProject\\src\\img\\guitarNeck.jpg"));
+            img = ImageIO.read(new File("src/img/guitarNeck.jpg"));
             setPreferredSize(new Dimension(300,300));
         }
         catch(IOException e)
