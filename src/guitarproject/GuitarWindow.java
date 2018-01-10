@@ -15,7 +15,7 @@ import java.awt.event.*;
  */
 public class GuitarWindow extends JFrame implements ActionListener
 {
-    private GuitarNeck gneck;
+    private SSCCE gneck;
     
     GuitarWindow(String s)
     {
@@ -32,28 +32,30 @@ public class GuitarWindow extends JFrame implements ActionListener
         
         JMenuItem create = new JMenuItem("Créer");
         chords.add(create);
-        chords.setActionCommand("menu_quitter");
-        chords.addActionListener(this);
+        create.setActionCommand("menu_quitter");
+        create.addActionListener(this);
         
         JMenuItem edit = new JMenuItem("Éditer");
         chords.add(edit);
-        chords.setActionCommand("menu_quitter");
-        chords.addActionListener(this);
+        edit.setActionCommand("menu_quitter");
+        edit.addActionListener(this);
         
         JMenuItem search = new JMenuItem("Rechercher");
         chords.add(search);
-        chords.setActionCommand("menu_quitter");
-        chords.addActionListener(this);
+        search.setActionCommand("recherche");
+        search.addActionListener(this);
         
         chords.add(new JSeparator());
         
         JMenuItem delete = new JMenuItem("Supprimer");
         chords.add(delete);
-        chords.setActionCommand("menu_quitter");
-        chords.addActionListener(this);
+        delete.setActionCommand("menu_quitter");
+        delete.addActionListener(this);
         
         
-        gneck = new GuitarNeck("../img/guitarNeck.jpeg");
+        
+        
+        gneck = new SSCCE();
         setContentPane(gneck);
         setVisible(true);
         pack();
@@ -64,6 +66,8 @@ public class GuitarWindow extends JFrame implements ActionListener
     {
         if(evenement.getActionCommand().equals("menu_quitter"))
             System.out.println("MENU QUITTER");
+        else if(evenement.getActionCommand().equals("recherche"))
+            System.out.println("Fenetre recherche");   
     }
 
 }
