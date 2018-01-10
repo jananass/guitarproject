@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package guitarproject;
-import java.util.*;
 
 /**
  *
@@ -19,5 +18,9 @@ public class GuitarChord {
     public GuitarChord(String n,int f,String t,String[] s)
     {
         name = n; fret = f; tuning = t; strings = s;
+    }
+    public GuitarChord()
+    {
+        name = ""; fret = 0; tuning = ""; strings = null;
     }
 }

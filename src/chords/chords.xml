@@ -14,14 +14,23 @@ Numbers are affected by fret value, Letters are NOT.
 
 <chords>
     <chord> <!-- Start of a chord -->
-            <name>E</name>
-            <fret>0</fret> <!-- starting fret -->
-            <tuning>E A D G B E</tuning> <!-- Tuning of the strings, here standard tuning -->
-            <string id="1">O</string> <!-- First string (E), fret value is O, which means Open -->
-            <string id="2">2</string> <!-- Second string (A), fret value is 2. -->
-            <string id="3">2</string> <!-- If a line is missing, then the string is not played. X do the same effect -->
-            <string id="4">1</string>
-            <string id="5">0</string>
-            <string id="6">0</string>
+        <name value="E"/>
+        <fret value="0"/> <!-- starting fret -->
+        <string id="1" tuning="E" value="O"/> <!-- First string (E), fret value is O, which means Open -->
+        <string id="2" tuning="A" value="2"/> <!-- Second string (A), fret value is 2. -->
+        <string id="3" tuning="D" value="2"/> <!-- If a line is missing, then the string is not played. X do the same effect -->
+        <string id="4" tuning="G" value="1"/>
+        <string id="5" tuning="B" value="0"/>
+        <string id="6" tuning="E" value="0"/>
     </chord> <!-- End of the chord -->
+    <chord>
+        <name value="A"/>
+        <fret value="0"/>
+        <string id="1" tuning="E" value="X"/>
+        <string id="2" tuning="A" value="0"/>
+        <string id="3" tuning="D" value="2"/>
+        <string id="4" tuning="G" value="2"/>
+        <string id="5" tuning="B" value="2"/>
+        <string id="6" tuning="E" value="0"/>
+    </chord>
 </chords>

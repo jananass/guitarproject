@@ -13,10 +13,14 @@ and open the template in the editor.
 
 <!-- TODO define your own vocabulary/syntax. Example follows:  -->
 <!ELEMENT chords (chord)*>
-<!ELEMENT chord (name,fret,tuning,string*)>
+<!ELEMENT chord (name,fret,string*)>
 <!ELEMENT name (#PCDATA) >
 <!ELEMENT fret (#PCDATA) >
-<!ELEMENT tuning (#PCDATA) >
-<!ELEMENT string (id,#PCDATA) >
-<!ATTLIST string id ID #REQUIRED >
+<!ELEMENT string (#PCDATA) >
+
+<!ATTLIST name value CDATA #REQUIRED>
+<!ATTLIST fret value (0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22) #REQUIRED>
+<!ATTLIST string id (1|2|3|4|5|6) #REQUIRED >
+<!ATTLIST string tuning CDATA #REQUIRED>
+<!ATTLIST string value CDATA #REQUIRED>
 
