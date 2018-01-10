@@ -24,7 +24,8 @@ public class GuitarNeck extends JPanel
         try
         {
             img = ImageIO.read(new File("src/img/guitarNeck.jpg"));
-            setPreferredSize(new Dimension(300,300));
+            //150*250
+            setPreferredSize(new Dimension(350,590));
         }
         catch(IOException e)
         {
@@ -34,6 +35,6 @@ public class GuitarNeck extends JPanel
     
     public void paint(Graphics g)
     {
-        g.drawImage(img, 0, 0, null);
+        g.drawImage(img, 0, 0, 350, 583, null);
     }
 }
