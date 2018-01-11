@@ -18,6 +18,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import javax.imageio.ImageIO;
+import java.io.IOException;
+
 import javax.swing.DefaultCellEditor;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -38,10 +41,6 @@ public class SSCCE extends JPanel
     public SSCCE()
     {
         setLayout( new BorderLayout() );
-        
-        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //this.setTitle("JTable");
-    //this.setSize(210, 500);
 
     DefaultTableModel dm = new DefaultTableModel();
     dm.setDataVector(new Object[][] { {"","","", "","","","","" },
@@ -66,7 +65,7 @@ public class SSCCE extends JPanel
     tableau.getColumnModel().getColumn(6).setPreferredWidth(29);
    tableau.getColumnModel().getColumn(7).setPreferredWidth(79);
     //Pour faire disparaitre les traits
-    //tableau.setShowGrid(false);
+    tableau.setShowGrid(false);
 
     tableau.getColumn("E").setCellRenderer(new ButtonRenderer());
     tableau.getColumn("E").setCellEditor(
@@ -92,7 +91,6 @@ public class SSCCE extends JPanel
     tableau.getColumn("e").setCellEditor(
         new ButtonEditor(new JCheckBox()));
 
-        //JTable table = new JTable(5, 5);
         tableau.setOpaque( false );
         DefaultTableCellRenderer renderer =
             (DefaultTableCellRenderer)tableau.getDefaultRenderer(Object.class);
@@ -116,7 +114,6 @@ public class SSCCE extends JPanel
             }
         };
         background.setPreferredSize(new Dimension(350,590));
-        //39.7
         background.add( scrollPane );
         add(background);
     }
@@ -124,16 +121,12 @@ public class SSCCE extends JPanel
     private static void createAndShowGUI()
     {
         JPanel panel = new JPanel();
-        //SSCCE p = new SSCCE();
 
         JFrame frame = new JFrame("SSCCE");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(new SSCCE());
         frame.setLocationByPlatform( true );
         frame.setResizable(false);
-        //frame.setContentPane(p);
-        //frame.setSize(350,590);
-        //panel.setPreferredSize(new Dimension(350,590));
         frame.pack();
         frame.setVisible( true );
     }
@@ -151,31 +144,35 @@ public class SSCCE extends JPanel
 }
 
 class ButtonRenderer extends JButton implements TableCellRenderer {
+    
+    //private ImageIcon im ;
 
   public ButtonRenderer() {
     setOpaque(false);
     setContentAreaFilled(false);
     setBorderPainted(false);
+    
+    try {
+    Image im = ImageIO.read(getClass().getResource("src/img/point.png"));
+    setIcon(new ImageIcon(im));
+  } catch (Exception ex) {
+    System.out.println(ex);
+  }
+    
+    
   }
 
   public Component getTableCellRendererComponent(JTable table, Object value,
       boolean isSelected, boolean hasFocus, int row, int column) {
     if (isSelected) {
-      //setForeground(table.getSelectionForeground());
-      System.out.println("BIM3");
-      //setBackground(table.getSelectionBackground());
+      //System.out.println(row + " et " + column);     
     } else {
-      //setForeground(table.getForeground());
-      //setBackground(UIManager.getColor("Button.background"));
+      //
     }
-    //setText((value == null) ? "" : value.toString());
+  
     return this;
   }
 }
-
-/**
- * @version 1.0 11/09/98
- */
 
 class ButtonEditor extends DefaultCellEditor {
   protected JButton button;
@@ -202,24 +199,20 @@ class ButtonEditor extends DefaultCellEditor {
     if (isSelected) {
       button.setForeground(table.getSelectionForeground());
       button.setBackground(table.getSelectionBackground());
+      System.out.println(row + " et " + column);
     } else {
       button.setForeground(table.getForeground());
       button.setBackground(table.getBackground());
     }
     label = (value == null) ? "" : value.toString();
     button.setText(label);
-    System.out.println("BIM2");
     isPushed = true;
     return button;
   }
 
   public Object getCellEditorValue() {
     if (isPushed) {
-      // 
-                  System.out.println("BIM");
- 
-      //JOptionPane.showMessageDialog(button, label + ": Ouch!");
-      // System.out.println(label + ": Ouch!");
+      //                 
     }
     isPushed = false;
     return new String(label);
