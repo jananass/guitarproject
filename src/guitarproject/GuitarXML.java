@@ -85,7 +85,6 @@ public class GuitarXML {
                     switch (name)
                     {
                         case "name" :
-                            System.out.println(c[i].name);
                             c[i].name = me.getAttribute("value");
                             break;
                         case "fret" :

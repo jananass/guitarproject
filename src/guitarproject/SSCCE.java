@@ -65,7 +65,7 @@ public class SSCCE extends JPanel
     tableau.getColumnModel().getColumn(6).setPreferredWidth(29);
    tableau.getColumnModel().getColumn(7).setPreferredWidth(79);
     //Pour faire disparaitre les traits
-    tableau.setShowGrid(false);
+    //tableau.setShowGrid(false);
 
     tableau.getColumn("E").setCellRenderer(new ButtonRenderer());
     tableau.getColumn("E").setCellEditor(

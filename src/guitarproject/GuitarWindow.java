@@ -66,8 +66,8 @@ public class GuitarWindow extends JFrame implements ActionListener
     {
         if(evenement.getActionCommand().equals("menu_quitter"))
             System.out.println("MENU QUITTER");
-        else if(evenement.getActionCommand().equals("recherche"))
-            System.out.println("Fenetre recherche");   
+        else if(evenement.getActionCommand().equals("recherche")){}
+            //GuitarResearch gc = new GuitarResearch();   
     }
 
 }
