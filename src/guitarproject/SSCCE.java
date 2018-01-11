@@ -66,7 +66,9 @@ public class SSCCE extends JPanel
    tableau.getColumnModel().getColumn(7).setPreferredWidth(79);
     //Pour faire disparaitre les traits
     tableau.setShowGrid(false);
-
+    //tableau.getTableHeader().setReorderingAllowed(false);
+    tableau.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+    
     tableau.getColumn("E").setCellRenderer(new ButtonRenderer());
     tableau.getColumn("E").setCellEditor(
         new ButtonEditor(new JCheckBox()));
@@ -152,12 +154,12 @@ class ButtonRenderer extends JButton implements TableCellRenderer {
     setContentAreaFilled(false);
     setBorderPainted(false);
     
-    try {
-    Image im = ImageIO.read(getClass().getResource("src/img/point.png"));
-    setIcon(new ImageIcon(im));
+    /*try {
+    final ImageIcon im = new ImageIcon("src/img/point.png");
+    
   } catch (Exception ex) {
     System.out.println(ex);
-  }
+  }*/
     
     
   }
