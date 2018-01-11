@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chords SYSTEM "chordsDTD.dtd">
+<!-- How the fret system works :
+fret 0 : 0 2 2 1 0 0 -> 0 2 2 1 0 0
+fret 2 : 0 2 2 1 0 0 -> 2 4 4 3 2 2
+
+Fret chord's value is added to the local fret value of the string.
+
+fret 0 : O 2 2 1 0 X -> O 2 2 1 0 X
+fret 2 : O 2 2 1 0 X -> O 4 4 3 2 X
+
+Numbers are affected by fret value, Letters are NOT.
+-->
+
+<chords>
+    <chord> <!-- Start of a chord -->
+        <name value="E"/>
+        <fret value="0"/> <!-- starting fret -->
+        <string id="1" tuning="E" value="O"/> <!-- First string (E), fret value is O, which means Open -->
+        <string id="2" tuning="A" value="2"/> <!-- Second string (A), fret value is 2. -->
+        <string id="3" tuning="D" value="2"/> <!-- If a line is missing, then the string is not played. X do the same effect -->
+        <string id="4" tuning="G" value="1"/>
+        <string id="5" tuning="B" value="0"/>
+        <string id="6" tuning="E" value="0"/>
+    </chord> <!-- End of the chord -->
+    <chord>
+        <name value="A"/>
+        <fret value="0"/>
+        <string id="1" tuning="E" value="X"/>
+        <string id="2" tuning="A" value="0"/>
+        <string id="3" tuning="D" value="2"/>
+        <string id="4" tuning="G" value="2"/>
+        <string id="5" tuning="B" value="2"/>
+        <string id="6" tuning="E" value="0"/>
+    </chord>
+</chords>
